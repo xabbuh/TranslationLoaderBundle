@@ -17,7 +17,8 @@ use \DateTime as DateTime;
  * @ORM\Table(name="translation_history",indexes={@ORM\Index(name="search_idx", columns={"trans_key", "trans_locale", "message_domain"})})
  * @ORM\Entity(repositoryClass="Asm\TranslationLoaderBundle\Repository\TranslationHistoryRepository")
  */
-class TranslationHistory {
+class TranslationHistory
+{
 
     /**
      * @ORM\Column(type="integer")
@@ -63,12 +64,6 @@ class TranslationHistory {
     private $translation;
 
     /**
-     * @var string $transValueAfter
-     * @ORM\Column(name="trans_value_after", type="text")
-     */
-    private $transValueAfter;
-
-    /**
      * @var string $dateOfChange
      * @ORM\Column(name="date_of_change", type="datetime", nullable=false)
      */
@@ -85,7 +80,7 @@ class TranslationHistory {
     /**
      * @param string $dateOfChange
      */
-    public function setDateOfChange($dateOfChange=null)
+    public function setDateOfChange($dateOfChange = null)
     {
         if (empty($dateOfChange)) {
             $dateOfChange = new DateTime();
@@ -184,7 +179,7 @@ class TranslationHistory {
     /**
      * @param string $userName
      */
-    public function setUserName($userName='anonymous')
+    public function setUserName($userName = 'anonymous')
     {
         $this->userName = $userName;
     }
