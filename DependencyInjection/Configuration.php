@@ -30,6 +30,18 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->arrayNode('resources')
+                    ->prototype('array')
+                        ->children()
+                            ->scalarNode('locale')
+                                ->isRequired()
+                            ->end()
+                            ->scalarNode('domain')
+                                ->defaultValue(null)
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
                 ->scalarNode('driver')
                     ->validate()
                         ->ifNotInArray($supportedDrivers)
